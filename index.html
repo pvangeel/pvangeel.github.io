@@ -1,0 +1,239 @@
+<html ng-app>
+
+<head>
+	<title>Pieter Van Geel</title>
+
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen" >
+
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+
+	<style>
+		#container { 
+			width: 860px; 
+			padding: 20px;
+			margin: 40px auto 60px; 
+			-webkit-box-shadow: 3px 0px 10px 0px rgba(50, 50, 50, 0.42);
+			-moz-box-shadow:    3px 0px 10px 0px rgba(50, 50, 50, 0.42);
+			box-shadow:         3px 0px 10px 0px rgba(50, 50, 50, 0.42);
+		}
+        #picture { 
+        	float: left; 
+        	margin-top: -15px;
+        	width: 150px; 
+        	padding: 12px; 
+        	background-color: white; 
+        	-webkit-box-shadow: rgba(0,0,0,.30) 0 2px 3px; 
+        	-moz-box-shadow: rgba(0,0,0,.30) 0 2px 3px; 
+        	box-shadow: rgba(0,0,0,.30) 0 2px 3px;
+        }
+
+		dt { 
+			font-weight: bold; 
+			float: left; 
+			width: 11em; 
+		}
+		dd { 
+			
+			float: left; 
+		}
+
+		.clear {
+			clear: both;
+		}
+	</style>
+
+	<script>
+		function EducationController($scope) {
+		  $scope.educations = [
+			    { 
+			    	title: "Master of Science in Engineering - Computer Science",
+			    	minor: "Distributed Systems",
+			    	institution: "KULeuven",
+			    	graduated: "Postponed (Didn't finish Master's Thesis)"
+				},
+			    { 
+			    	title: "Bachelor of Science in Informatics",
+			    	minor: "Technology Minor",
+			    	institution: "KULeuven",
+			    	graduated: "2009"
+				},
+				{ 
+			    	title: "General Secondary Education: Science / Mathematics",
+			    	minor: "Mathematics (8 hours)",
+			    	institution: "Scheppersinstituur Mechelen",
+			    	graduated: "2004"
+				}
+			];
+		};
+		function ExperienceController($scope) {
+		  $scope.experiences = [
+			    { 
+			    	job_title: "Java developer", 
+			    	company: "Startup company",
+			    	projects: [
+			    		{
+			    			name: "Social network application",
+			    			description: "I joined this project in a very early stage. A throw-away prototype application had been developed and the base of a new application was already there. The main focus was to build a scalable single-page application that could handle many concurrent request, where every request would potentially involve huge amounts of data.",
+			    			technologies: "AngularJS, Spring, Hibernate, MySQL, ElasticSearch, Tomcat"
+			    		}
+			    	]	
+			    },
+			    { 
+			    	job_title: "Java developer", 
+			    	company: "UnifiedPost",
+			    	projects: [
+			    		{
+			    			name: "Document processing backend",
+			    			description: "Legacy Java application responsible for processing about 8 million documents per month. Processing started when files were presented by customers (in csv, xml, pdf, ... formats) and could be delivered over multiple channels (Letter, e-document, mail, fax, ...). High throughput, high concurrency and fault-tolerance where key factors to the application. A web-frontend was also available for monitoring and managing the flow of the documents.",
+			    			technologies: "Hibernate, MySQL, Tomcat"
+			    		},
+			    		{
+			    			name: "Multi-tenant electronic-document portal",
+			    			description: "Later I became responsible for maintaining and extending the front-end application where e-documents where delivered. This was a highly configurable, multi-tenant platform with a lot of customer specific extensions that handled millions of documents per month. Documents had to be searchable and sortable on multiple configurable fields, for this Lucene was used. As the 'legacy platform' was being outsourced, I was also responsible for training Romanian colleagues to be able to support and extend the platform. (Both the processing as the presentation components.)",
+			    			technologies: "Jboss, Seam, JSF, Hibernate (Search), Lucene, MySQL, HornetQ (JMS)"
+			    		}
+			    	]	
+			    }
+			];
+		};
+		  
+	</script>
+
+
+</head>
+
+<body>
+
+	<div id="container">
+		<div id="contact-details" style="height: 180px;"> 
+			<div style="width: 625px; float: left;">
+
+				<h1 style="margin-bottom: 0;">Pieter Van Geel</h1>
+				<h4 style="margin-top: 0; font-style: italic;">Java Developer</h4>
+				<dl>
+					<p class="clear">
+						<dt>Date of birth:</dt>
+						<dd>02/07/1986</dd>
+					</p>
+					<p class="clear">
+						<dt>Email:</dt>
+						<dd>pieter.vangeel@gmail.com</dd>
+					</p>
+					<p class="clear">
+						<dt>Phone:</dt>
+						<dd>+32 498 77 76 50</dd>
+					</p>
+				</dl>
+
+			</div>
+			<div id="picture-container" > 
+				<img id="picture" src="picture.png"/>
+			</div>
+
+		</div>
+		<hr />
+		<div id="education" ng-controller="EducationController">
+			<h1>Education</h1>
+			<div class="clear" ng-repeat="education in educations">
+				<div style="margin-bottom: 40px;">
+					<h3>
+						<a data-toggle="collapse" data-target="{{'#education-' + $index}}" style="color: 0; cursor: pointer; text-decoration: underline;">
+							{{education.title}}
+						</a>
+					</h3>
+					<div id="{{'education-' + $index}}" class="collapse" ng-class="$index == 0 ? 'in' : ''" style="margin-top: 10px; margin-bottom: 10px;">
+					<dl>
+						<p class="clear">
+							<dt>Minor:</dt>
+							<dd>{{education.minor}}</dd>
+						</p>
+						<p class="clear">
+							<dt>Institution:</dt>
+							<dd>{{education.institution}}</dd>
+						</p>
+						<p class="clear">
+							<dt>Graduated:</dt>
+							<dd>{{education.graduated}}</dd>
+						</p>
+					</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<hr />
+		
+		<div id="experience" ng-controller="ExperienceController">
+			<h1>Experience</h1>
+			<div class="clear" ng-repeat="experience in experiences">
+				<div style="margin-bottom: 40px;">
+					<h3>{{experience.job_title}} @ {{experience.company}}</h3>
+					<div ng-repeat="project in experience.projects">
+						<h4>{{project.name}}</h4>
+						<p>
+							{{project.description}}
+						</p>
+						<h5>Technologies</h5>
+						<p style="font-size: small;">
+							{{project.technologies}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+
+		<div id="extra">
+			<h1>Extra</h1>
+			<div>
+				<h3>Student jobs</h3>
+				<p>
+					Throughout high school and university, I've always worked different weekend jobs.
+				</p>
+				<dl>
+					<p class="clear">
+						<dt>Taxi Walter</dt>
+						<dd>Taxi driver for IKEA customers. (Weekends and holidays, 2008 - 2011)</dd>
+					</p>
+					<p class="clear">
+						<dt>Bakkerij de Kock</dt>
+						<dd>General bakery work (Weekends, 2001 - 2008)</dd>
+					</p>
+					<p class="clear">
+						<dt>Various vacation jobs</dt>
+						<dd>Orderpicking, IT support, fruit &amp; vegetable packaging, ...</dd>
+					</p>
+				</dl>
+			</div>
+
+			<div>
+				<h3>Music</h3>
+				<p>
+					One and a half year ago I started playing the piano and studying music.
+				</p>
+				<dl>
+					<p class="clear">
+						<dt>Conservatorium Leuven</dt>
+						<dd>Piano and general music theory. (2012 - now)</dd>
+					</p>
+					
+				</dl>
+			</div>
+		</div>
+
+		<div style="height: 50px;">
+
+		</div>
+		<hr/>
+
+		
+
+
+	</div>
+
+
+
+
+</body>
