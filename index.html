@@ -4,7 +4,7 @@
 	<title>Pieter Van Geel</title>
 
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen" >
-
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
 
@@ -49,8 +49,7 @@
 			    { 
 			    	title: "Master of Science in Engineering - Computer Science",
 			    	minor: "Distributed Systems",
-			    	institution: "KULeuven",
-			    	graduated: "Postponed (Didn't finish Master's Thesis)"
+			    	institution: "KULeuven"
 				},
 			    { 
 			    	title: "Bachelor of Science in Informatics",
@@ -71,6 +70,7 @@
 			    { 
 			    	job_title: "Java developer", 
 			    	company: "Startup company",
+				duration: "2013 - now (6 months)",
 			    	projects: [
 			    		{
 			    			name: "Social network application",
@@ -82,6 +82,7 @@
 			    { 
 			    	job_title: "Java developer", 
 			    	company: "UnifiedPost",
+				duration: "2011 - 2013 (2 years)",
 			    	projects: [
 			    		{
 			    			name: "Document processing backend",
@@ -152,9 +153,9 @@
 							<dt>Institution:</dt>
 							<dd>{{education.institution}}</dd>
 						</p>
-						<p class="clear">
-							<dt>Graduated:</dt>
-							<dd>{{education.graduated}}</dd>
+						<p class="clear" ng-if="education.graduated">
+							<dt ng-if="education.graduated">Graduated:</dt>
+							<dd ng-if="education.graduated">{{education.graduated}}</dd>
 						</p>
 					</dl>
 					</div>
@@ -168,7 +169,7 @@
 			<h1>Experience</h1>
 			<div class="clear" ng-repeat="experience in experiences">
 				<div style="margin-bottom: 40px;">
-					<h3>{{experience.job_title}} @ {{experience.company}}</h3>
+					<h3>{{experience.job_title}} @ {{experience.company}} ({{experience.duration}})</h3>
 					<div ng-repeat="project in experience.projects">
 						<h4>{{project.name}}</h4>
 						<p>
