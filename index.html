@@ -69,8 +69,20 @@
 		  $scope.experiences = [
 			    { 
 			    	job_title: "Java developer", 
+			    	company: "Ypto",
+					duration: "2013 - now (6 months)",
+			    	projects: [
+			    		{
+			    			name: "Train ticket distribution platform",
+			    			description: "Maintenance and development of several J2EE applications communicating through SOAP. Also migration of a highly customized build and SCM environment with heavy ClearCase and ant/ivy dependency towards more standardized git + maven setup.",
+			    			technologies: "Spring, Hibernate, Oracle, Websphere, SOAP, ClearCase, Struts"
+			    		}
+			    	]	
+			    },
+			    { 
+			    	job_title: "Java developer", 
 			    	company: "Startup company",
-				duration: "2013 - now (6 months)",
+					duration: "2013 - 2014 (9 months)",
 			    	projects: [
 			    		{
 			    			name: "Social network application",
@@ -82,17 +94,17 @@
 			    { 
 			    	job_title: "Java developer", 
 			    	company: "UnifiedPost",
-				duration: "2011 - 2013 (2 years)",
+					duration: "2011 - 2013 (2 years)",
 			    	projects: [
 			    		{
 			    			name: "Document processing backend",
 			    			description: "Legacy Java application responsible for processing about 8 million documents per month. Processing started when files were presented by customers (in csv, xml, pdf, ... formats) and could be delivered over multiple channels (Letter, e-document, mail, fax, ...). High throughput, high concurrency and fault-tolerance where key factors to the application. A web-frontend was also available for monitoring and managing the flow of the documents.",
-			    			technologies: "Hibernate, MySQL, Tomcat"
+			    			technologies: "Hibernate, MySQL, Tomcat, Struts"
 			    		},
 			    		{
 			    			name: "Multi-tenant electronic-document portal",
 			    			description: "Later I became responsible for maintaining and extending the front-end application where e-documents where delivered. This was a highly configurable, multi-tenant platform with a lot of customer specific extensions that handled millions of documents per month. Documents had to be searchable and sortable on multiple configurable fields, for this Lucene was used. As the 'legacy platform' was being outsourced, I was also responsible for training Romanian colleagues to be able to support and extend the platform. (Both the processing as the presentation components.)",
-			    			technologies: "Jboss, Seam, JSF, Hibernate (Search), Lucene, MySQL, HornetQ (JMS)"
+			    			technologies: "Jboss, Seam, JSF, Hibernate, Hibernate Search, Lucene, MySQL, HornetQ (JMS)"
 			    		}
 			    	]	
 			    }
