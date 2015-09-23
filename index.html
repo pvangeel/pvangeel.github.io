@@ -1,4 +1,4 @@
-<html ng-app>
+<html data-ng-app>
 
 <head>
 	<title>Pieter Van Geel</title>
@@ -28,14 +28,19 @@
         	box-shadow: rgba(0,0,0,.30) 0 2px 3px;
         }
 
-		dt { 
+    dl {
+    	overflow: auto;
+    }
+
+		dt {
 			font-weight: bold; 
 			float: left; 
 			width: 11em; 
 		}
-		dd { 
 			
-			float: left; 
+		dd {
+			float: left;
+			margin-bottom: 10px;
 		}
 
 		.clear {
@@ -68,16 +73,28 @@
 		function ExperienceController($scope) {
 		  $scope.experiences = [
 			    { 
-			    	job_title: "Java developer", 
+			    	job_title: "Scala developer",
+			    	company: "VAB Fleet-Services",
+					duration: "2015 - now (7 months)",
+			    	projects: [
+			    		{
+			    			name: "VIC - Vehicle information component",
+			    			description: "Development of features in a fairly young PlayFramework application (Scala). In-house lightweight CRM + connecting different platform components together.",
+			    			technologies: "Scala, PlayFramework, Anorm, SOAP, AngularJS, jQuery"
+			    		}
+			    	]	
+			    },
+			  {
+			    	job_title: "Java developer",
 			    	company: "Ypto",
-					duration: "2013 - now (6 months)",
+					duration: "2014 - 2015 (7 months)",
 			    	projects: [
 			    		{
 			    			name: "Train ticket distribution platform",
 			    			description: "Maintenance and development of several J2EE applications communicating through SOAP. Also migration of a highly customized build and SCM environment with heavy ClearCase and ant/ivy dependency towards more standardized git + maven setup.",
 			    			technologies: "Spring, Hibernate, Oracle, Websphere, SOAP, ClearCase, Struts"
 			    		}
-			    	]	
+			    	]
 			    },
 			    { 
 			    	job_title: "Java developer", 
@@ -125,18 +142,12 @@
 				<h1 style="margin-bottom: 0;">Pieter Van Geel</h1>
 				<h4 style="margin-top: 0; font-style: italic;">Java Developer</h4>
 				<dl>
-					<p class="clear">
-						<dt>Date of birth:</dt>
-						<dd>02/07/1986</dd>
-					</p>
-					<p class="clear">
-						<dt>Email:</dt>
-						<dd>pieter.vangeel@gmail.com</dd>
-					</p>
-					<p class="clear">
-						<dt>Phone:</dt>
-						<dd>+32 498 77 76 50</dd>
-					</p>
+                    <dt class="clear">Date of birth:</dt>
+                    <dd>02/07/1986</dd>
+                    <dt class="clear">Email:</dt>
+                    <dd>pieter.vangeel@gmail.com</dd>
+                    <dt class="clear">Phone:</dt>
+                    <dd>+32 498 77 76 50</dd>
 				</dl>
 
 			</div>
@@ -151,24 +162,24 @@
 			<div class="clear" ng-repeat="education in educations">
 				<div style="margin-bottom: 40px;">
 					<h3>
-						<a data-toggle="collapse" data-target="{{'#education-' + $index}}" style="color: 0; cursor: pointer; text-decoration: underline;">
+						<a data-toggle="collapse" data-target="{{'#education-' + $index}}" style="color: unset; cursor: pointer; text-decoration: underline;">
 							{{education.title}}
 						</a>
 					</h3>
 					<div id="{{'education-' + $index}}" class="collapse" ng-class="$index == 0 ? 'in' : ''" style="margin-top: 10px; margin-bottom: 10px;">
 					<dl>
-						<p class="clear">
-							<dt>Minor:</dt>
+						
+							<dt class="clear">Minor:</dt>
 							<dd>{{education.minor}}</dd>
-						</p>
-						<p class="clear">
-							<dt>Institution:</dt>
+						
+						
+							<dt class="clear">Institution:</dt>
 							<dd>{{education.institution}}</dd>
-						</p>
-						<p class="clear" ng-if="education.graduated">
-							<dt ng-if="education.graduated">Graduated:</dt>
+						
+						
+							<dt class="clear" ng-if="education.graduated">Graduated:</dt>
 							<dd ng-if="education.graduated">{{education.graduated}}</dd>
-						</p>
+						
 					</dl>
 					</div>
 				</div>
@@ -199,37 +210,37 @@
 
 		<div id="extra">
 			<h1>Extra</h1>
-			<div>
+			<div class="clear">
 				<h3>Student jobs</h3>
 				<p>
 					Throughout high school and university, I've always worked different weekend jobs.
 				</p>
 				<dl>
-					<p class="clear">
+					
 						<dt>Taxi Walter</dt>
 						<dd>Taxi driver for IKEA customers. (Weekends and holidays, 2008 - 2011)</dd>
-					</p>
-					<p class="clear">
+					
+					
 						<dt>Bakkerij de Kock</dt>
 						<dd>General bakery work (Weekends, 2001 - 2008)</dd>
-					</p>
-					<p class="clear">
+					
+					
 						<dt>Various vacation jobs</dt>
 						<dd>Orderpicking, IT support, fruit &amp; vegetable packaging, ...</dd>
-					</p>
+					
 				</dl>
 			</div>
 
-			<div>
+			<div class="clear">
 				<h3>Music</h3>
 				<p>
-					One and a half year ago I started playing the piano and studying music.
+					A few years ago I started playing the piano and studying music.
 				</p>
 				<dl>
-					<p class="clear">
+
 						<dt>Conservatorium Leuven</dt>
 						<dd>Piano and general music theory. (2012 - now)</dd>
-					</p>
+
 					
 				</dl>
 			</div>
